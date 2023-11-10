@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calcolatrice</title>
+</head>
+<body>
+
+<h2>Calcolatrice</h2>
+
+
+<input type="number" id="numero1">
+<input type="number" id="numero2">
+<br>
+<br>
+<input type="button" value="+" onClick="somma()">
+<input type="button" value="-" onClick="sottrazione()">
+<input type="button" value="*" onClick="moltiplicazione()">
+<input type="button" value=":" onClick="divisione()">
+<p id="risultato"></p>
+
+<script>
+
+function somma() {
+    var n1 = parseInt(document.getElementById("numero1").value);
+    var n2 = parseInt(document.getElementById("numero2").value);
+    var ris;
+    ris = n1 + n2;
+        if(isNaN(ris))
+        ris = 0;
+    document.getElementById("risultato").innerHTML = ris;
+}
+function sottrazione() {
+    var n1 = parseInt(document.getElementById("numero1").value);
+    var n2 = parseInt(document.getElementById("numero2").value);
+    ris = n1 - n2;
+        if(isNaN(ris))
+        ris = 0;
+    document.getElementById("risultato").innerHTML = ris;
+}
+function moltiplicazione() {
+    var n1 = parseInt(document.getElementById("numero1").value);
+    var n2 = parseInt(document.getElementById("numero2").value);
+    ris = n1 * n2;
+    if(isNaN(ris))
+        ris = 0;
+    document.getElementById("risultato").innerHTML = ris;
+}
+function divisione() {
+    var n1 = parseInt(document.getElementById("numero1").value);
+    var n2 = parseInt(document.getElementById("numero2").value);
+    ris = n1 / n2;
+    if(isNaN(ris))
+        ris = 0;
+    document.getElementById("risultato").innerHTML = ris;
+}
+</script>
+</body>
+</html>
