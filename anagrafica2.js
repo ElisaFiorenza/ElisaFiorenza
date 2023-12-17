@@ -1,0 +1,13 @@
+document.getElementById("nome").innerHTML = localStorage.getItem('nom');
+document.getElementById("cognome").innerHTML = localStorage.getItem('cog');
+document.getElementById("indirizzo").innerHTML = localStorage.getItem('ind');
+document.getElementById("citta").innerHTML = localStorage.getItem('cit');
+document.getElementById("provincia").innerHTML= localStorage.getItem('pro');
+document.getElementById("sesso").innerHTML = localStorage.getItem('ses');
+document.getElementById("italiano").innerHTML = localStorage.getItem('ita');
+document.getElementById("storia").innerHTML = localStorage.getItem('sto');
+document.getElementById("matematica").innerHTML = localStorage.getItem('mat');
+document.getElementById("inglese").innerHTML = localStorage.getItem('ing');
+document.getElementById("informatica").innerHTML = localStorage.getItem('inf');
+document.getElementById("TPSIT").innerHTML = localStorage.getItem('tps');
+localStorage.clear();
