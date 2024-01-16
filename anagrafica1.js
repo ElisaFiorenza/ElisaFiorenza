@@ -2,6 +2,7 @@ function SecondaPagina() {
     window.location.href = 'anagrafica2.html';
 }
 function dati() {
+    let aAdati = new Array();
     localStorage.setItem('nom', document.getElementById("nome").value);
     localStorage.setItem('cog', document.getElementById("cognome").value);
     localStorage.setItem('ind', document.getElementById("indirizzo").value);
