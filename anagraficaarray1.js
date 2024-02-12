@@ -11,12 +11,12 @@ function dati() {
 
     var radio = document.getElementById("maschio");
     if (radio.checked == true) {
-        aDati[5] = document.getElementById("Maschio").value;
+        aDati[5] = document.getElementById("maschio").value;
     }
     var radio = document.getElementById("femmina");
 
     if (radio.checked == true) {
-        aDati[5] = document.getElementById("Femmina").value;
+        aDati[5] = document.getElementById("femmina").value;
     }
     var checkBox = document.getElementById("ita");
     if (checkBox.checked == true) {

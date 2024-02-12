@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<title>Inserisci gli elementi della spesa</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Inserisci gli elementi della spesa</h2>
+    <form id="spesaForm">
+        <input type="text" id="elemento" placeholder="Inserisci un elemento">
+        <button type="button" onclick="aggiungiElemento()">Aggiungi</button>
+    </form>
+</div>
+
+<div id="listaSpesa" class="container" style="display: none;">
+    <h2>Lista della spesa</h2>
+    <ul id="listaElementi">
+    </ul>
+    <button onclick="visualizzaListaSpesa()">Visualizza lista della spesa</button>
+</div>
+
+<script>
+    function aggiungiElemento() {
+        var elementoInput = document.getElementById("elemento");
+        var elemento = elementoInput.value.trim();
+        if (elemento !== "") {
+            var listaElementi = document.getElementById("listaElementi");
+            var nuovoElemento = document.createElement("li");
+            nuovoElemento.textContent = elemento;
+            nuovoElemento.className = "item";
+            listaElementi.appendChild(nuovoElemento);
+            // Resetta il campo di input
+            elementoInput.value = "";
+        } else {
+            alert("Inserisci un elemento valido!");
+        }
+    }
+
+    function rimuoviElemento(elemento) {
+        elemento.parentNode.removeChild(elemento);
+    }
+
+    function visualizzaListaSpesa() {
+        // Costruisci l'URL con i dati della lista della spesa
+        var listaSpesa = document.getElementById("listaElementi").innerHTML;
+        var url = "listaspesa2.html?listaSpesa=" + encodeURIComponent(listaSpesa);
+        // Reindirizza alla pagina successiva
+        window.location.href = url;
+    }
+</script>
+
+</body>
+</html>
