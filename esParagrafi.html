@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <head>
+        <style>
+            body {
+            background-color: #fff9db;
+            margin: 0;
+            display: inline;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            }
+        
+            h2 {
+            color: rgb(77, 79, 45);
+            text-align: center;
+            }
+        </style>
+
+        <h2><p>es su getElementsByClassName e getElementsByTagName</p></h2><br>
+        </head>
+    <p></p><p id="par1">
+    <p></p><p id="par2">
+    <p></p><p id="par3">
+    <p></p><p id="par4">
+    <p></p><p id="par5">
+    <p></p><p id="par6">
+    <p></p><p id="pa7">
+    <p></p><p id="pa8">
+    <p></p><p id="pa9">
+    <p></p><p id="par10">
+
+    <input type="text" id="testo1">
+    <input type="text" id="testo2">
+    <input type="button" value="invio" onClick="controllocodicefiscale()">
+
+    <script>
+
+        function controllocodicefiscale()
+        {
+            let codicef = document.getElementById("cf").value;
+            const pattern = /^([a-z]{6})+([0-9]{2})+([a-z]{1})+([0-9]{2})+([a-z]{1})+([0-9]{3})+([a-z]{1})$/;
+            if(pattern.test(codicef) == true)
+            {
+                alert("Codice fiscale valido!");
+            }
+            else if(pattern.test(codicef) == false)
+            {
+                alert("Codice fiscale non valido, riprova");
+            }
+        }
+
+    </script>
+
+    </body>
+</html>

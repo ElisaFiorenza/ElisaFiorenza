@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+  <title>Aggiorna Paragrafo</title>
+  <style>
+    body {
+            background-color: #84d9bd;
+            margin: 0;
+            display: inline;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            }
+        
+            p {
+            color: rgb(0, 0, 0);
+            }
+  </style>
+</head>
+<body>
+
+  <h1>Aggiorna Paragrafo</h1>
+
+  <label for="numeroParagrafo">Inserire numero paragrafo:</label>
+  <input type="number" id="numeroParagrafo">
+  
+  <label for="testoParagrafo">Inserire testo Paragrafo:</label>
+  <input type="text" id="testoParagrafo">
+
+  <button onclick="aggiornaParagrafo()">Inserire numero paragrafo</button>
+
+  <div id="paragrafi">
+  </div>
+
+  <script>
+    function aggiornaParagrafo() {
+      var numeroParagrafo = document.getElementById("numeroParagrafo").value;
+      var testoParagrafo = document.getElementById("testoParagrafo").value;
+
+      if (numeroParagrafo >= 1 && numeroParagrafo <= 10) 
+      {
+        var paragrafo = document.getElementById("paragrafo" + numeroParagrafo);
+        paragrafo.textContent = testoParagrafo;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() 
+    {
+      var paragrafiContainer = document.getElementById("paragrafi");
+
+      for (var i = 1; i <= 10; i++) 
+      {
+        var paragrafo = document.createElement("p");
+        paragrafo.id = "paragrafo" + i;
+        paragrafo.textContent = "Paragrafo " + i;
+        paragrafiContainer.appendChild(paragrafo);
+      }
+    });
+  </script>
+
+</body>
+</html>
