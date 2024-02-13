@@ -47,5 +47,6 @@ function dati() {
     if (checkBox.checked == true) {
         aDati[11] = 'TPSIT';
     }
-    localStorage.setItem('dati', aDati);
+    let aDatiJSON = JSON.stringify(aDati);
+    localStorage.setItem('dati', aDatiJSON);
 }

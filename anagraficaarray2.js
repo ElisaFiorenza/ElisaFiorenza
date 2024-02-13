@@ -1,5 +1,7 @@
-let aDati2 = new Array();
-aDati2 = localStorage.getItem('dati');
+let aDatiJSON2 = new Array();
+aDatiJSON2 = localStorage.getItem('dati');
+let aDati2 = JSON.parse(aDatiJSON2);
+
 document.getElementById("nome").innerHTML = aDati2[0];
 document.getElementById("cognome").innerHTML = aDati2[1];
 document.getElementById("indirizzo").innerHTML = aDati2[2];
