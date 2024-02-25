@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+<title>Es cambio dimensioni e colori</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #d9f2de;
+    }
+
+    p {
+        color: black;
+    }
+    h4{
+        color: grey;
+    }
+</style>
+</head>
+<body>
+    <p><h4>Ricetta Lasagna:</h4></p>
+
+<select id="selezioneColore" onchange="cambiaColore()">
+  <option value="purple">Viola</option>
+  <option value="green">Verde</option>
+  <option value="orange">Arancione</option>
+  <option value="red">Rosso</option>
+</select>
+
+<br><br>
+
+<label><input type="radio" onclick="cambiaDimensione(12)"> 12</label>
+<label><input type="radio" onclick="cambiaDimensione(16)"> 16</label>
+<label><input type="radio" onclick="cambiaDimensione(20)"> 20</label>
+
+<br><br>
+
+<p id="testo">In una padella, rosolare cipolla e aglio in olio d'oliva, 
+    aggiungere la carne macinata e cuocere, poi unire pomodori pelati e concentrato di pomodoro, condire e cuocere.<br> 
+    Preparare la besciamella. Preriscaldare il forno a 180°C. In una teglia, alternare strati 
+    di lasagne, salsa di carne, mozzarella, parmigiano e besciamella, terminando con besciamella e formaggio.<br> Cuocere coperto con carta 
+    stagnola per 30 minuti, poi scoperto per altri 10-15 minuti fino a doratura. Lasciare riposare e servire, 
+    eventualmente spolverando con prezzemolo. Buon appetito!</p>
+
+<script>
+function cambiaColore() {
+  var colore = document.getElementById("selezioneColore").value;
+  document.getElementById("testo").style.color = colore;
+}
+
+function cambiaDimensione(dimensione) {
+  document.getElementById("testo").style.fontSize = dimensione + "px";
+}
+</script>
+
+</body>
+</html>

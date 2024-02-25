@@ -71,6 +71,5 @@ function dati() {
     {
         aDati[11] = ' ';
     }
-    let aDatiJSON = JSON.stringify(aDati);
-    localStorage.setItem('dati', aDatiJSON);
+    localStorage.setItem('dati', aDati);
 }
