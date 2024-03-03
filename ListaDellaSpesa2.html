@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista della spesa</title>
+</head>
+<body>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #c9e3f9; 
+    }
+
+    p {
+        color: #003c7d;
+    }
+
+    h1 {
+        color: #0079fa;
+    }
+</style>
+
+  <h1>Lista della spesa</h1>
+  <div id="prodottiEliminabili"></div>
+
+  <script>
+    function mostraProdotti() {
+      var prodottiStringa = localStorage.getItem("prodottiPagina1");
+      if (prodottiStringa) {
+        var prodottiArray = prodottiStringa.split(",");
+        var prodottiEliminabili = document.getElementById("prodottiEliminabili");
+        for (var i = 0; i < prodottiArray.length; i++) {
+          if (prodottiArray[i] != "") {
+            var paragrafo = document.createElement("p");
+            paragrafo.textContent = prodottiArray[i] + "\n";
+            var pulsante = document.createElement("button");
+            pulsante.textContent = "Elimina";
+            pulsante.onclick = function() { eliminaProdotto(this); };
+            paragrafo.appendChild(pulsante);
+            prodottiEliminabili.appendChild(paragrafo);
+          }
+        }
+      }
+    }
+
+    function eliminaProdotto(pulsante) {
+      var paragrafo = pulsante.parentNode;
+      paragrafo.parentNode.removeChild(paragrafo);
+    }
+
+    mostraProdotti();
+  </script>
+</body>
+</html>

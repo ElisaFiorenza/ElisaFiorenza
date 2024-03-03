@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+  <title>Creazione lista della spesa</title>
+</head>
+<body>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #c9e3f9; 
+    }
+
+    p {
+        color: #003c7d;
+    }
+
+    h1 {
+        color: #0079fa;
+    }
+</style>
+
+  <h1>Creazione lista della spesa</h1>
+  <input type="text" id="prodottoinserito">
+  <button onclick="aggiungiProdotto()">Aggiungi</button>
+  <p id="prodottiInseriti"></p>
+  <button onclick="Invio()">Invio</button>
+
+  <script>
+    function aggiungiProdotto() {
+      var prodotto = document.getElementById("prodottoinserito").value;
+      var paragrafo = document.getElementById("prodottiInseriti");
+      paragrafo.innerHTML += prodotto + ",";
+    }
+
+    function Invio() {
+      var prodotti = document.getElementById("prodottiInseriti").innerHTML;
+      localStorage.setItem("prodottiPagina1", prodotti);
+      window.location.href = "ListaDellaSpesa2.html";
+    }
+  </script>
+</body>
+</html>
