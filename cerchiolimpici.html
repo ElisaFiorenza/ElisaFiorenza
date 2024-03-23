@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<title>Cerchi Olimpici</title>
+<style>
+    body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+</style>
+</head>
+<body>
+<canvas id="cerchiolimpici" width="1400" height="700"></canvas>
+
+<script>
+    const canvas = document.getElementById('cerchiolimpici');
+    const ctx = canvas.getContext('2d');
+    const centroX = canvas.width / 2;
+    const centroY = canvas.height / 2;
+    const raggio = 150;
+    const spessore = 20; 
+
+    ctx.beginPath();
+    ctx.arc(centroX - 360, centroY, raggio, 0, Math.PI * 2);
+    ctx.strokeStyle = '#0033a0'; // Blu
+    ctx.lineWidth = spessore;
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(centroX, centroY, raggio, 0, Math.PI * 2);
+    ctx.strokeStyle = '#000'; // Nero
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(centroX + 360, centroY, raggio, 0, Math.PI * 2);
+    ctx.strokeStyle = '#ce1126'; // Rosso
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(centroX - 180, centroY + 180, raggio, 0, Math.PI * 2);
+    ctx.strokeStyle = '#fcb514'; // Giallo
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(centroX + 180, centroY + 180, raggio, 0, Math.PI * 2);
+    ctx.strokeStyle = '#009e49'; // Verde
+    ctx.stroke();
+    ctx.closePath();
+</script>
+</body>
+</html>
+
