@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creazione dinamica di una tabella con numeri casuali e colorazione dei numeri in base alla divisibilità</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+Numero di righe: <input type="text" id="r"><br>
+Numero di colonne: <input type="text" id="c"><br>
+<input type="button" value="Crea Tabella" onclick="CreazioneTabella()">
+
+<div id="tabella1"></div>
+
+<script>
+    function CreazioneTabella() {
+        var r = document.getElementById("r").value;
+        var c = document.getElementById("c").value;
+        var i, j;
+        var s = "<table>";
+        for (i = 1; i <= r; i++) {
+            s += "<tr>";
+            for (j = 1; j <= c; j++) {
+                var ris = Math.ceil(Math.random() * 100);
+                s += "<td>" + ris + "</td>";
+            }
+            s += "</tr>";
+        }
+        s += "</table>";
+        document.getElementById("tabella1").innerHTML = s;
+        ColoraDivisibili();
+    }
+</script>
+</body>
+</html>
