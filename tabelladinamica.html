@@ -38,6 +38,19 @@ Numero di colonne: <input type="text" id="c"><br>
         document.getElementById("tabella1").innerHTML = s;
         ColoraDivisibili();
     }
+
+    function ColoraDivisibili() {
+        const tdElements = document.getElementsByTagName("td");
+        for (let i = 0; i < tdElements.length; i++) {
+            const num = parseInt(tdElements[i].textContent);
+            if (num % 2 === 0) {
+                tdElements[i].style.color = "red";
+            }
+            if (num % 3 === 0) {
+                tdElements[i].style.color = "green";
+            }
+        }
+    }
 </script>
 </body>
 </html>

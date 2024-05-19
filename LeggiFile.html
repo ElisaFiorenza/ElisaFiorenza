@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+    <title>Da file CSV a tabella</title>
+</head>
+<body>
+    <h1>Da file CSV a tabella</h1>
+    <input type="file" id="fileInput" />
+    <div id="tabella1"></div>
+    <style>
+        
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #c9e3f9; 
+    }
+
+    p {
+        color: #003c7d;
+    }
+
+    h1 {
+        color: #0079fa;
+    }
+    </style>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', 
+        function(event) 
+        {
+            var file = event.target.files[0];
+            if (file) 
+            {
+                var lettore = new FileReader();
+                lettore.onload = function(e) {
+                    var testo = e.target.result;
+                    creaTabellaDaCSV(testo);
+                };
+                lettore.readAsText(file);
+            }
+        });
+
+        function creaTabellaDaCSV(csv) 
+        {
+            var righe = csv.split("\n");
+            var tabella = "<table border='1'>";
+            for (var i = 0; i < righe.length; i++) 
+            {
+                var celle = righe[i].split(",");
+                tabella += "<tr>";
+                for (var j = 0; j < celle.length; j++) 
+                {
+                    tabella += "<td>" + celle[j] + "</td>";
+                }
+                tabella += "</tr>";
+            }
+            tabella += "</table>";
+            document.getElementById("tabella1").innerHTML = tabella;
+        }
+    </script>
+</body>
+</html>
