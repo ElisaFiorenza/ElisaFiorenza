@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<head>
+    <title>Temperatura Mondiale</title>
+</head>
+<body>
+    <div id="tabella1"></div>
+    <script>
+        var csv;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                csv = this.responseText;
+                creaTabellaDaCSV(csv);
+            }
+        };
+
+        xhttp.open("GET", "https://raw.githubusercontent.com/jialiangcao/CSVGraphWeather/main/dataset.csv", true);
+        xhttp.send();
+
+        function creaTabellaDaCSV(csv) {
+            var righe = csv.split("\n");
+            var tabella = "<table border='1'>";
+            for (var i = 0; i < righe.length; i++) {
+                var celle = righe[i].split(",");
+                tabella += "<tr>";
+                for (var j = 0; j < celle.length; j++) {
+                    tabella += "<td>" + celle[j] + "</td>";
+                }
+                tabella += "</tr>";
+            }
+            tabella += "</table>";
+            document.getElementById("tabella1").innerHTML = tabella;
+        }
+    </script>
+</body>
+</html>
