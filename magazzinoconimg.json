@@ -1,0 +1,42 @@
+{
+"magazzino" :
+[
+{
+    "nome":"prosciutto",
+    "prezzo_acquisto": 3,
+    "quantita": 46,
+    "img" : "https://magazine.artigianoinfiera.it/wp-content/uploads/2015/06/prezzo-un-etto-di-prosciutto-crudo.jpeg"
+},
+
+{
+ 
+    "nome":"biscotti",
+    "prezzo_acquisto": 5,
+    "quantita": 68,
+    "img" : "https://www.cereal.it/wp-content/uploads/Biscotti-Gocce-Cioccolato-.png"
+},
+{
+   
+    "nome":"besciamella",
+    "prezzo_acquisto": 2,
+    "quantita": 68,
+    "img" : "https://www.parmalat.it/origin0/app/uploads/2023/12/19142232/BES_CHEF_200_-CLASS.png"
+},
+{
+ 
+    "nome":"mela",
+    "prezzo_acquisto": 1,
+    "prezzo_vendita": 0,
+    "quantita": 22,
+    "img" : "https://media.istockphoto.com/id/184276818/it/foto/mela-rossa.jpg?s=612x612&w=0&k=20&c=q2UpVCD6mW7efFwQb1OKgFX3OyX46HMBGOB7Pf3UprQ="
+},
+{
+ 
+    "nome":"mela gialla",
+    "prezzo_acquisto": 1,
+    "prezzo_vendita": 0,
+    "quantita": 46,
+    "img" : "https://www.ilgustodellafrutta.it/wp-content/uploads/2019/01/Mela-gialla-delicius.jpg"
+}
+]
+}
