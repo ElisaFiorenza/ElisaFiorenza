@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>prodotti supermercato</h2>
+
+<TABLE id="t1">
+<input id="percentualericarico" type="text"> 
+<input id="b1" type="button" onclick="LetturaFile();" value="Stampa Tabella prodotti"> 
+<br> 
+<script>
+function LetturaFile()
+{
+let xhr = new XMLHttpRequest();
+
+xhr.open("GET", "https://elisafiorenza.github.io/ElisaFiorenza/magazzinoconimg.json", true); //si definisce l'apertura di un file di testo presente nell'host in locale
+xhr.send(); // si invia la richiesta al server
+
+xhr.onload = function() {
+    const oggetto = JSON.parse(xhr.responseText); // si crea un oggetto che è un vettore di persone
+    var i;
+    str = "<tr><th>Nome </th> <th> Prezzo di acquisto  </th> <th> Prezzo di vendita  </th> <th>    quantita   </th> <th>  Guadagno    </th> <th>    immagine  </th> <th>  Link  </th></tr>";
+
+    for(i = 0; i < oggetto.magazzino.length; i++) // si genera dinamicamente una tabella in cui si inseriscono tutti dati presenti nel vettore di oggetti  
+    {
+        var percentuale = document.getElementById("percentualericarico").value;
+        var prezzo_vendita = oggetto.magazzino[i].prezzo_acquisto + ((oggetto.magazzino[i].prezzo_acquisto * percentuale) / 100);
+        var guadagno = Math.trunc((prezzo_vendita * 100) - (oggetto.magazzino[i].prezzo_acquisto * 100)) / 100;
+        str = str + "<tr><td>" + oggetto.magazzino[i].nome + "</td><td>" + oggetto.magazzino[i].prezzo_acquisto + " euro</td><td>" + prezzo_vendita + " euro</td><td>" + oggetto.magazzino[i].quantita + "</td><td>" + guadagno + "</td><td><img src='" + oggetto.magazzino[i].img + "' style='width:50px;height:50px;'></td><td><a href='" + oggetto.magazzino[i].img + "'>Vai al prodotto</a></td></tr>";
+    }
+
+    str = str + "</TABLE>";
+    alert(str);
+    document.getElementById("t1").innerHTML = str;
+}
+}
+</script>
+
+</body>
+</html>
