@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <title>Immagine e Descrizione</title>
+</head>
+<body>
+
+<div class="container" id="contenutoDinamico"></div>
+
+<script>
+let xhr = new XMLHttpRequest();
+xhr.open("GET", "https://elisafiorenza.github.io/ElisaFiorenza/magazzinoconimg.json", true);
+
+xhr.onload = function() {
+    const oggetto = JSON.parse(xhr.responseText);
+    var indice = localStorage.getItem("prodottoIndice");
+
+        const prodotto = oggetto.magazzino[indice];
+
+        const contenitore = document.getElementById("contenutoDinamico");
+
+        const contenitoreImmagine = document.createElement("div");
+        contenitoreImmagine.classList.add("image-container");
+
+        const immagine = document.createElement("img");
+        immagine.src = prodotto.img;
+
+        const contenitoreDescrizione = document.createElement("div");
+        contenitoreDescrizione.classList.add("description");
+
+        const descrizioneTesto = document.createElement("p");
+        descrizioneTesto.innerText = prodotto.descrizione;
+
+        contenitoreImmagine.appendChild(immagine);
+        contenitoreDescrizione.appendChild(descrizioneTesto);
+
+        contenitore.appendChild(contenitoreImmagine);
+        contenitore.appendChild(contenitoreDescrizione);
+    };
+
+xhr.send();
+</script>
+
+</body>
+</html>

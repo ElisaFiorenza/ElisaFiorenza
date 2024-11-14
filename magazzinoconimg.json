@@ -1,0 +1,40 @@
+{
+    "magazzino" : [
+      {
+        "nome": "prosciutto",
+        "prezzo_acquisto": 3,
+        "quantita": 46,
+        "img" : "https://magazine.artigianoinfiera.it/wp-content/uploads/2015/06/prezzo-un-etto-di-prosciutto-crudo.jpeg",
+        "descrizione": "Prosciutto crudo stagionato, dal sapore delicato e aromatico, ideale per antipasti o come condimento per piatti tipici."
+      },
+      {
+        "nome": "biscotti",
+        "prezzo_acquisto": 5,
+        "quantita": 68,
+        "img" : "https://www.cereal.it/wp-content/uploads/Biscotti-Gocce-Cioccolato-.png",
+        "descrizione": "Biscotti fragranti con gocce di cioccolato, perfetti per una merenda o una pausa dolce in qualsiasi momento della giornata."
+      },
+      {
+        "nome": "besciamella",
+        "prezzo_acquisto": 2,
+        "quantita": 68,
+        "img" : "https://www.parmalat.it/origin0/app/uploads/2023/12/19142232/BES_CHEF_200_-CLASS.png",
+        "descrizione": "Besciamella cremosa e ricca, ideale per condire pasta al forno, lasagne, gratinati e molte altre ricette tradizionali."
+      },
+      {
+        "nome": "mela",
+        "prezzo_acquisto": 1,
+        "quantita": 22,
+        "img" : "https://media.istockphoto.com/id/184276818/it/foto/mela-rossa.jpg?s=612x612&w=0&k=20&c=q2UpVCD6mW7efFwQb1OKgFX3OyX46HMBGOB7Pf3UprQ=",
+        "descrizione": "Mela rossa croccante e succosa, con un gusto dolce e leggermente acidulo. Perfetta per uno snack sano e nutriente."
+      },
+      {
+        "nome": "mela gialla",
+        "prezzo_acquisto": 1,
+        "quantita": 46,
+        "img" : "https://www.ilgustodellafrutta.it/wp-content/uploads/2019/01/Mela-gialla-delicius.jpg",
+        "descrizione": "Mela gialla, dal sapore dolce e fresco. Ottima sia da mangiare al naturale che come ingrediente in dolci e torte."
+      }
+    ]
+  }
+  
