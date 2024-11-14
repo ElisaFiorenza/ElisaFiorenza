@@ -1,6 +1,61 @@
 <!DOCTYPE html>
 <head>
     <title>Immagine e Descrizione</title>
+    <style>
+        /* Impostazioni generali della pagina */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dbdbed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #55a1fe;
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 93, 93, 0.414);
+            overflow: hidden;
+            margin: 100px;
+            padding: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .image-container img {
+            width: 90%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .description {
+            width: 100%;
+            text-align: center;
+        }
+
+        .description p {
+            font-size: 2em;
+            color: #000000;
+            line-height: 2;
+            margin: 0;
+            padding: 0 15px;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,31 +69,32 @@ xhr.onload = function() {
     const oggetto = JSON.parse(xhr.responseText);
     var indice = localStorage.getItem("prodottoIndice");
 
-        const prodotto = oggetto.magazzino[indice];
+    const prodotto = oggetto.magazzino[indice];
 
-        const contenitore = document.getElementById("contenutoDinamico");
+    const contenitore = document.getElementById("contenutoDinamico");
 
-        const contenitoreImmagine = document.createElement("div");
-        contenitoreImmagine.classList.add("image-container");
+    const contenitoreImmagine = document.createElement("div");
+    contenitoreImmagine.classList.add("image-container");
 
-        const immagine = document.createElement("img");
-        immagine.src = prodotto.img;
+    const immagine = document.createElement("img");
+    immagine.src = prodotto.img;
 
-        const contenitoreDescrizione = document.createElement("div");
-        contenitoreDescrizione.classList.add("description");
+    const contenitoreDescrizione = document.createElement("div");
+    contenitoreDescrizione.classList.add("description");
 
-        const descrizioneTesto = document.createElement("p");
-        descrizioneTesto.innerText = prodotto.descrizione;
+    const descrizioneTesto = document.createElement("p");
+    descrizioneTesto.innerText = prodotto.descrizione;
 
-        contenitoreImmagine.appendChild(immagine);
-        contenitoreDescrizione.appendChild(descrizioneTesto);
+    contenitoreImmagine.appendChild(immagine);
+    contenitoreDescrizione.appendChild(descrizioneTesto);
 
-        contenitore.appendChild(contenitoreImmagine);
-        contenitore.appendChild(contenitoreDescrizione);
-    };
+    contenitore.appendChild(contenitoreImmagine);
+    contenitore.appendChild(contenitoreDescrizione);
+};
 
 xhr.send();
 </script>
 
 </body>
 </html>
+
