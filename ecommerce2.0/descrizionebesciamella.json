@@ -1,0 +1,11 @@
+{
+    "besciamella" : [
+        {
+            "nome": "besciamella",
+            "prezzo_acquisto": 2,
+            "quantita": 68,
+            "img" : "https://www.parmalat.it/origin0/app/uploads/2023/12/19142232/BES_CHEF_200_-CLASS.png",
+            "descrizione": "Besciamella cremosa e ricca, ideale per condire pasta al forno, lasagne, gratinati e molte altre ricette tradizionali."
+          }
+    ]
+  }

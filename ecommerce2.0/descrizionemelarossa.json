@@ -1,0 +1,11 @@
+{
+    "mela rossa" : [
+        {
+            "nome": "mela",
+            "prezzo_acquisto": 1,
+            "quantita": 22,
+            "img" : "https://media.istockphoto.com/id/184276818/it/foto/mela-rossa.jpg?s=612x612&w=0&k=20&c=q2UpVCD6mW7efFwQb1OKgFX3OyX46HMBGOB7Pf3UprQ=",
+            "descrizione": "Mela rossa croccante e succosa, con un gusto dolce e leggermente acidulo. Perfetta per uno snack sano e nutriente."
+          }
+    ]
+  }

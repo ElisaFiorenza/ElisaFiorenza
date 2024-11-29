@@ -1,0 +1,24 @@
+{
+  "magazzino": [
+      {
+          "img": "https://magazine.artigianoinfiera.it/wp-content/uploads/2015/06/prezzo-un-etto-di-prosciutto-crudo.jpeg",
+          "json": "descrizioneprosciutto.json"
+      },
+      {
+          "img": "https://www.cereal.it/wp-content/uploads/Biscotti-Gocce-Cioccolato-.png",
+          "json": "descrizionebiscotti.json"
+      },
+      {
+          "img": "https://www.parmalat.it/origin0/app/uploads/2023/12/19142232/BES_CHEF_200_-CLASS.png",
+          "json": "descrizionebesciamella.json"
+      },
+      {
+          "img": "https://media.istockphoto.com/id/184276818/it/foto/mela-rossa.jpg?s=612x612&w=0&k=20&c=q2UpVCD6mW7efFwQb1OKgFX3OyX46HMBGOB7Pf3UprQ=",
+          "json": "descrizionemelarossa.json"
+      },
+      {
+          "img": "https://www.ilgustodellafrutta.it/wp-content/uploads/2019/01/Mela-gialla-delicius.jpg",
+          "json": "descrizionemelagialla.json"
+      }
+  ]
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(163, 215, 255);
+        }
+        h2{
+            font-family: Arial, Helvetica, sans-serif;
+            color: blue;
+            font-size: 25px;
+            justify-content: center;
+            display: flex;
+        }
+        p{
+            color: black;
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            justify-content: center;
+            display: flex;
+        }
+        .contenitore-immagine {
+            width: 100%;
+            margin-bottom: 20px;
+            justify-content: center;
+            display: flex;
+        }
+
+        .contenitore-immagine img {
+            width: 80%;
+            max-width: 300px; 
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>Prodotti supermercato</h2>
+    <p>Clicca un'immagine per dettagli sul prodotto:</p>
+    <div class="container" id="contenutoDinamico"></div>
+
+    <script>
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "magazzino2.json", true); // si definisce l'apertura di un file di testo presente nell'host in locale
+    xhr.send(); // si invia la richiesta al server
+
+    xhr.onload = function() {
+        const oggetto = JSON.parse(xhr.responseText); // si crea un oggetto che è un vettore di prodotti
+        var i;
+        for(i = 0; i < oggetto.magazzino.length; i++) {
+            const contenitore = document.getElementById("contenutoDinamico");
+
+            const contenitoreImmagine = document.createElement("div");
+            contenitoreImmagine.classList.add("contenitore-immagine");
+
+            const immagine = document.createElement("img");
+            immagine.src = oggetto.magazzino[i].img;
+
+            immagine.onclick = (function(indice) {
+                return function() {
+                    descrizioneprodotto(indice);
+                };
+            })(i);
+
+            contenitoreImmagine.appendChild(immagine);
+            contenitore.appendChild(contenitoreImmagine);
+        }
+    }
+
+    function descrizioneprodotto(indice) {
+        localStorage.setItem("prodottoIndice", indice);
+        window.location.href = "descrizioneprodotto2.html";
+    }
+
+    </script>
+
+</body>
+</html>

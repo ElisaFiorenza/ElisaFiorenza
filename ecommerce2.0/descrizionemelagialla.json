@@ -1,0 +1,11 @@
+{
+    "mela gialla" : [
+        {
+            "nome": "mela gialla",
+            "prezzo_acquisto": 1,
+            "quantita": 46,
+            "img" : "https://www.ilgustodellafrutta.it/wp-content/uploads/2019/01/Mela-gialla-delicius.jpg",
+            "descrizione": "Mela gialla, dal sapore dolce e fresco. Ottima sia da mangiare al naturale che come ingrediente in dolci e torte."
+          }
+    ]
+  }

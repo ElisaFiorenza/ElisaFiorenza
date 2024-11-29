@@ -1,0 +1,11 @@
+{
+    "prosciutto" : [
+      {
+        "nome": "prosciutto",
+        "prezzo_acquisto": 3,
+        "quantita": 46,
+        "img" : "https://magazine.artigianoinfiera.it/wp-content/uploads/2015/06/prezzo-un-etto-di-prosciutto-crudo.jpeg",
+        "descrizione": "Prosciutto crudo stagionato, dal sapore delicato e aromatico, ideale per antipasti o come condimento per piatti tipici."
+      }
+    ]
+  }

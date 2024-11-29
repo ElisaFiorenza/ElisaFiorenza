@@ -1,0 +1,11 @@
+{
+    "biscotti" : [
+        {
+            "nome": "biscotti",
+            "prezzo_acquisto": 5,
+            "quantita": 68,
+            "img" : "https://www.cereal.it/wp-content/uploads/Biscotti-Gocce-Cioccolato-.png",
+            "descrizione": "Biscotti fragranti con gocce di cioccolato, perfetti per una merenda o una pausa dolce in qualsiasi momento della giornata."
+          }
+    ]
+  }

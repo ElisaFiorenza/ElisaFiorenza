@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<head>
+    <title>Immagine e Dettagli</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dbdbed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contenitore {
+            background-color: #55a1fe;
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 93, 93, 0.414);
+            overflow: hidden;
+            margin: 100px;
+            padding: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contenitore-immagine {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .contenitore-immagine img {
+            width: 90%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .dettagli {
+            width: 100%;
+            text-align: center;
+        }
+
+        .dettagli p {
+            font-size: 1.5em;
+            color: #000000;
+            line-height: 1.8;
+            margin: 10px 0;
+            padding: 0 15px;
+        }
+
+        .dettagli p span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenitore" id="contenutoDinamico"></div>
+
+<script>
+let richiesta = new XMLHttpRequest();
+richiesta.open("GET", "magazzino2.json", true);
+
+richiesta.onload = function() {
+    const datiMagazzino = JSON.parse(richiesta.responseText);
+    var indiceProdotto = localStorage.getItem("prodottoIndice");
+
+    const dettagliProdotto = datiMagazzino.magazzino[indiceProdotto].json[0];//non carica i file json:(
+
+    const contenitore = document.getElementById("contenutoDinamico");
+
+    const contenitoreImmagine = document.createElement("div");
+    contenitoreImmagine.classList.add("contenitore-immagine");
+
+    const immagine = document.createElement("img");
+    immagine.src = dettagliProdotto.img;
+
+    contenitoreImmagine.appendChild(immagine);
+    contenitore.appendChild(contenitoreImmagine);
+
+    const contenitoreDettagli = document.createElement("div");
+    contenitoreDettagli.classList.add("dettagli");
+
+    const nomeProdotto = document.createElement("p");
+    nomeProdotto.innerHTML = `<span>Nome:</span> ${dettagliProdotto.nome}`;
+    contenitoreDettagli.appendChild(nomeProdotto);
+
+    const prezzoProdotto = document.createElement("p");
+    prezzoProdotto.innerHTML = `<span>Prezzo d'acquisto:</span> ${dettagliProdotto.prezzo_acquisto} €`;
+    contenitoreDettagli.appendChild(prezzoProdotto);
+
+    const quantitaProdotto = document.createElement("p");
+    quantitaProdotto.innerHTML = `<span>Quantità:</span> ${dettagliProdotto.quantita}`;
+    contenitoreDettagli.appendChild(quantitaProdotto);
+
+    const descrizioneProdotto = document.createElement("p");
+    descrizioneProdotto.innerHTML = `<span>Descrizione:</span> ${dettagliProdotto.descrizione}`;
+    contenitoreDettagli.appendChild(descrizioneProdotto);
+
+    contenitore.appendChild(contenitoreDettagli);
+};
+
+richiesta.send();
+</script>
+
+</body>
+</html>
+
