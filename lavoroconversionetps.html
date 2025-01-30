@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>Conversione Valuta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #81ffff;
+            color: #333;
+        }
+        h1 {
+            color: #0e50a6;
+        }
+        button {
+            background-color: #2e78d8;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fffbe6;
+        }
+        table, th, td {
+            border: 1px solid #0b6bba;
+        }
+        th {
+            background-color: #9cd1ff;
+            color: #333;
+            padding: 10px;
+            text-align: left;
+        }
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+        input, select {
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversione Valuta da Euro</h1>
+    <label for="euroAmount">Importo in Euro:</label>
+    <input type="number" id="euroAmount" placeholder="Inserisci importo in Euro" />
+    <br><br>
+    <label for="currencySelect">Seleziona Valuta:</label>
+    <select id="currencySelect">
+    </select>
+    <br><br>
+    <button onclick="converti()">Converti</button>
+    <h3 id="result"></h3>
+
+    <script>
+        let tassiCambio = [];
+
+        function caricaXML() {
+            const url = "xmlvalute.xml";
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+
+            xhr.onload = function () {
+                const xmlDoc = xhr.responseXML;
+                const tassi = xmlDoc.getElementsByTagName("Cube");
+                for (let i = 0; i < tassi.length; i++) {
+                    const valuta = tassi[i].getAttribute("currency");
+                    const tasso = parseFloat(tassi[i].getAttribute("rate"));
+                    tassiCambio.push({ valuta, tasso });
+                }
+                caricaSelezioneValute();
+            };
+            xhr.send();
+        }
+
+        function caricaSelezioneValute() {
+            const select = document.getElementById("currencySelect");
+            tassiCambio.forEach((valutaObj) => {
+                const option = document.createElement("option");
+                option.value = valutaObj.valuta;
+                option.textContent = valutaObj.valuta;
+                select.appendChild(option);
+            });
+        }
+
+        function converti() {
+            const amount = parseFloat(document.getElementById("euroAmount").value);
+            const selectedCurrency = document.getElementById("currencySelect").value;
+
+            // Troviamo il tasso corrispondente alla valuta selezionata
+            const tasso = tassiCambio.find(item => item.valuta === selectedCurrency)?.tasso;
+
+            // Se non troviamo un tasso valido
+            if (!tasso) {
+                alert("Tasso di cambio non trovato per la valuta selezionata.");
+                return;
+            }
+
+            const risultato = amount * tasso;
+            document.getElementById("result").textContent = `${amount} EUR = ${risultato.toFixed(2)} ${selectedCurrency}`;
+        }
+
+        window.onload = caricaXML;
+    </script>
+</body>
+</html>
