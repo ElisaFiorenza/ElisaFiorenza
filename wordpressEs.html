@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Post dal sito di TechCrunch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            max-width: 600px;
+            background-color: rgb(168, 195, 218);
+        }
+        h1 {
+            color: #3157ff;
+            display: inline-block;
+            border: 2px solid #700303;
+            padding: 5px;
+        }
+        li {
+            list-style: none;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        a {
+            text-decoration: none;
+            color: #512870;
+        }
+    </style>
+</head>
+<body>
+    <h1>Post di TechCrunch</h1>
+    <ul id="elenco-post"></ul>
+
+    <script>
+        const urlApi = 'https://techcrunch.com/wp-json/wp/v2/posts';
+
+        async function recuperaPost() {
+            const risposta = await fetch(urlApi);
+            const post = await risposta.json();
+            mostraPost(post);
+        }
+
+        function mostraPost(post) {
+            const elencoPost = document.getElementById('elenco-post');
+
+            post.forEach(articolo => {
+                const elementoLista = document.createElement('li');
+                const titolo = articolo.title.rendered;
+                const link = articolo.link;
+                const dataPubblicazione = new Date(articolo.date).toLocaleDateString('it-IT');
+                const estratto = document.createElement('p');
+                estratto.textContent = articolo.excerpt.rendered.replace(/<[^>]*>/g, '');
+                elementoLista.innerHTML = `
+                    <h3><a href="${link}" target="_blank">${titolo}</a></h3>
+                    <p><strong>Data:</strong> ${dataPubblicazione}</p>
+                `;
+                elementoLista.appendChild(estratto);
+                elencoPost.appendChild(elementoLista);
+            });
+        }
+        recuperaPost();
+    </script>
+</body>
+</html>
