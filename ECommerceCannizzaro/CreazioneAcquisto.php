@@ -48,6 +48,8 @@
 <form action="InserimentoAcquisto.php" method="post">
 <p>Scegli l'utente nell'elenco</p>
 <select name="utente">
+<p>Scegli il prodotto desiderato nell'elenco</p>
+<select name="prodotto">
 <?php
 // Definizione delle variabili
 $host_name="localhost";
@@ -60,11 +62,17 @@ if (mysqli_connect_errno()) {
 echo "Impossibile connettersi a MySQL: " . mysqli_connect_error();
 exit();
 }
-// Selezione dell’elenco delle città
+// Selezione dell’elenco degli utenti
 $query_sql = "SELECT DISTINCT nome, cognome FROM Utenti ORDER BY id";
 $result = mysqli_query($con, $query_sql);
 foreach($result as $row){
 echo "<option>".$row['cognome']. $row['cognome'] "</option>";
+
+// Selezione elenco dei prodotti
+$query_sql = "SELECT DISTINCT modello, marca, prezzo FROM Prodotto ORDER BY id";
+$result = mysqli_query($con, $query_sql);
+foreach($result as $row){
+echo "<option>".$row['modello']. $row['marca'] . $row['prezzo'] ."</option>";
 }
 ?>
 </select>

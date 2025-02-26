@@ -50,30 +50,31 @@
         <p>Seleziona un'opzione dal menu sopra.</p>
 
         <?php
-        // Definizione delle variabili di connessione
-        $host_name = "localhost";
-        $username = "root";
-        $password = "";
-        $db_name = "utenze";
-        
-        // Connessione al database
+        // Definizione delle variabili
+        $host_name="localhost";
+        $username="root";
+        $password="";
+        $db_name="ECannizzaro";
+        // Connessione al server e al database
         $con = mysqli_connect($host_name, $username, $password, $db_name);
         if (mysqli_connect_errno()) {
-            echo "<p style='color: red;'>Impossibile connettersi a MySQL: " . mysqli_connect_error() . "</p>";
-            exit();
-        }
+        echo "Impossibile connettersi a MySQL: " . mysqli_connect_error();
+        exit();
+    }
         
         // Query per il numero di acquisti
         $query = "SELECT COUNT(*) as totale FROM Acquisti";
         $result = mysqli_query($con, $query);
-        echo "<h2>Numero di Acquisti: " . $row['totale'] . "</h2>";
-
-        $query_sql = "SELECT utenti.nome, utenti.cognome, aquisti.data FROM Utenti, Aquisti WHERE Aquisti.idUtente = Utenti.id";
-        $result = mysqli_query($con, $query_sql);
         foreach($result as $row){
-            echo "<tr> <td>" . $row['nome'] . "</td>";
-            echo "<td>" . $row['cognome'] . "</td>";
-            echo "<td>" . $row['data'] . "</td> </tr>";
+        echo "<h2>Numero di Acquisti: " . $row['totale'] . "</h2>";
+        }
+        echo "<h2>Prodotti disponibili:</h2>";
+        $query2 = "SELECT modello, marca, prezzo FROM Prodotti ORDER BY id";
+        $result2 = mysqli_query($con, $query2);
+        foreach($result2 as $row2){
+            echo "<tr> <td>" . $row2['modello'] . " - </td>";
+            echo "<td>" . $row2['marca'] . " - </td>";
+            echo "<td>" . $row2['prezzo'] . "</td></tr><br><br>";
             }
         ?>
         </form>

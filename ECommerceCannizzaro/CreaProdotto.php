@@ -45,8 +45,7 @@
             <li><a href="elenco_utenti.php">Elenco Utenti</a></li>
         </ul>
     </nav>
-
-        <form action="inserimentoutente.php" method="post">
+        <form action="InserimentoProdotto.php" method="post">
         <p>Inserisci i dati del prodotto</p>
         <label>Modello:</label>
         <input type="text" name="modello">
