@@ -45,17 +45,29 @@
             <li><a href="elenco_utenti.php">Elenco Utenti</a></li>
         </ul>
     </nav>
-        <form action="InserimentoAcquisto.php" method="post">
-        <p>Accesso:</p>
-        <p>Email:</p>
-        <input type="text" name="email">
-        <label>Password:</label>
-        <input type="text" name="password"><br><br>
-        <p>Inserisci i dati del prodotto desiderato:</p>
-        <label>Modello:</label>
-        <input type="text" name="modello">
-        <label>Marca:</label>
-        <input type="text" name="marca">
-        </form>
-    </body>
-</html>
+<form action="InserimentoAcquisto.php" method="post">
+<p>Scegli l'utente nell'elenco</p>
+<select name="utente">
+<?php
+// Definizione delle variabili
+$host_name="localhost";
+$username="root";
+$password="";
+$db_name="utenze";
+// Connessione al server e al database
+$con = mysqli_connect($host_name, $username, $password, $db_name);
+if (mysqli_connect_errno()) {
+echo "Impossibile connettersi a MySQL: " . mysqli_connect_error();
+exit();
+}
+// Selezione dell’elenco delle città
+$query_sql = "SELECT DISTINCT nome, cognome FROM Utenti ORDER BY id";
+$result = mysqli_query($con, $query_sql);
+foreach($result as $row){
+echo "<option>".$row['cognome']. $row['cognome'] "</option>";
+}
+?>
+</select>
+<input type="submit" name="invio" value="Cerca" />
+</form>
+</body>

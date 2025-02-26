@@ -40,7 +40,7 @@
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="CreazioneUtente.php">Registra Utente</a></li>
-            <li><a href="inserisci_prodotto.php">Inserisci Prodotto</a></li>
+            <li><a href="CreaProdotto.php">Inserisci Prodotto</a></li>
             <li><a href="acquista_prodotto.php">Acquista Prodotto</a></li>
             <li><a href="elenco_utenti.php">Elenco Utenti</a></li>
         </ul>
