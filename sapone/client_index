@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Test SOAP</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <form method="POST" action="" class="form-inline">
+			<div class="form-group">	
+				<div class="col">
+            		<input type="number" name="qty" value="1" min="1"/>
+				</div>
+				<div class="col">
+            		<select name="valuta" id="valuta">
+						<option value='USD'>USD</option>
+						<option value='JPY'>JPY</option>
+						<option value='BGN'>BGN</option>
+						<option value='CZK'>CZK</option>
+						<option value='DKK'></option>
+						<option value='GBP'>Sterlina</option>
+						<option value='HUF'></option>
+						<option value='PLN'></option>
+						<option value='RON'></option>
+						<option value='SEK'>svezia</option>
+						<option value='CHF'></option>
+						<option value='ISK'></option>
+						<option value='NOK'></option>
+						<option value='TRY'></option>
+						<option value='AUD'></option>
+						<option value='BRL'></option>
+						<option value='CAD'></option>
+						<option value='CNY'></option>
+						<option value='HKD'></option>
+						<option value='IDR'></option>
+						<option value='ILS'></option>
+						<option value='INR'></option>
+						<option value='KRW'></option>
+						<option value='MXN'></option>
+						<option value='MYR'></option>
+						<option value='NZD'></option>
+						<option value='PHP'></option>
+						<option value='SGD'></option>
+						<option value='THB'></option>
+						<option value='ZAR'></option>
+					</select> 
+				</div>
+            <input type="submit" value="conversione euro" class="btn btn-primary mb-2"/>
+			</div>
+        </form>
+    </body>
+
+<?php
+
+//Client SOAP
+
+$wsdl_url = "http://127.0.0.1/soap2/server/test.wsdl";
+
+if (isset($_POST['qty']) && !empty($_POST['qty']) && isset($_POST['valuta']) && !empty($_POST['valuta'])){ 
+
+   try {
+
+        $qty=$_POST['qty'];
+        $val=$_POST['valuta'];
+
+        $client = new SoapClient($wsdl_url,["location" =>"http://127.0.0.1/soap2/server/",""]);
+
+        $risposta = $client->sayHello($qty,$val);
+
+        echo "<div class='jumbotron'><h1>La conversione di ".$qty." euro in ".$val." è ".$risposta."</h1><br></div>";
+
+    } catch (SoapFault $e){
+
+        echo '<br>Errore nel client SOAP: ' . $e->getMessage();
+
+    } 
+
+}
+
+//http://compodelli.66ghz.com/server/test.wsdl
+//http://compodelli.66ghz.com/server/
+
+
+?>
+
+</html>

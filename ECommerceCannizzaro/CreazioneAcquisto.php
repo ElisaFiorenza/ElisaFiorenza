@@ -67,7 +67,7 @@ $query_sql = "SELECT DISTINCT nome, cognome FROM Utenti ORDER BY id";
 $result = mysqli_query($con, $query_sql);
 foreach($result as $row){
 echo "<option>".$row['cognome']. $row['cognome'] "</option>";
-
+}
 // Selezione elenco dei prodotti
 $query_sql = "SELECT DISTINCT modello, marca, prezzo FROM Prodotto ORDER BY id";
 $result = mysqli_query($con, $query_sql);
