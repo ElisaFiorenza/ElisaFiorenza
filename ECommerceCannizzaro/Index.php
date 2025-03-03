@@ -2,13 +2,17 @@
 <head>
     <title>E-commerce Cannizzaro</title>
     <style>
+        /* Stili generali */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #cce7ff; /* Blu pastello chiaro */
+            color: #333;
         }
+        /* Stili della barra di navigazione */
         nav {
-            background-color: #333;
+            background-color: #ff9999; /* Rosso pastello */
             padding: 10px 0;
             text-align: center;
         }
@@ -29,8 +33,14 @@
         nav ul li a:hover {
             text-decoration: underline;
         }
+        /* Contenitore principale */
         .container {
             padding: 20px;
+            background-color: white;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -50,23 +60,20 @@
         <p>Seleziona un'opzione dal menu sopra.</p>
 
         <?php
-        // Definizione delle variabili
         $host_name="localhost";
         $username="root";
         $password="";
         $db_name="ECannizzaro";
-        // Connessione al server e al database
         $con = mysqli_connect($host_name, $username, $password, $db_name);
         if (mysqli_connect_errno()) {
-        echo "Impossibile connettersi a MySQL: " . mysqli_connect_error();
-        exit();
-    }
+            echo "Impossibile connettersi a MySQL: " . mysqli_connect_error();
+            exit();
+        }
         
-        // Query per il numero di acquisti
         $query = "SELECT COUNT(*) as totale FROM Acquisti";
         $result = mysqli_query($con, $query);
         foreach($result as $row){
-        echo "<h2>Numero di Acquisti: " . $row['totale'] . "</h2>";
+            echo "<h2>Numero di Acquisti: " . $row['totale'] . "</h2>";
         }
         echo "<h2>Prodotti disponibili:</h2>";
         $query2 = "SELECT modello, marca, prezzo FROM Prodotti ORDER BY id";
@@ -75,9 +82,8 @@
             echo "<tr> <td>" . $row2['modello'] . " - </td>";
             echo "<td>" . $row2['marca'] . " - </td>";
             echo "<td>" . $row2['prezzo'] . "</td></tr><br><br>";
-            }
+        }
         ?>
-        </form>
     </div>
 </body>
 </html>
