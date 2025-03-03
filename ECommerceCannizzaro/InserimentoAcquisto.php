@@ -35,13 +35,12 @@
     </style>
 </head>
 <body>
-
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="CreazioneUtente.php">Registra Utente</a></li>
             <li><a href="CreaProdotto.php">Inserisci Prodotto</a></li>
-            <li><a href="acquista_prodotto.php">Acquista Prodotto</a></li>
+            <li><a href="CreazioneAcquisto.php">Acquista Prodotto</a></li>
             <li><a href="elenco_utenti.php">Elenco Utenti</a></li>
         </ul>
     </nav>
@@ -58,13 +57,14 @@
     echo "Impossibile connettersi a MySQL: " . mysqli_connect_error();
     exit();
     }
+
     // Acquisizione dei dati dal form HTML
     $email = $_POST["email"];
     $password = $_POST["password"];
     $modello = $_POST["modello"];
     $marca = $_POST["marca"];
-    // Inserimento dell'utente
 
+    // Inserimento dell'utente
     $sql_user = "SELECT id FROM utenti WHERE email = '$email' AND password = '$password'";
     $result_user = mysqli_query($con, $sql_user);
 

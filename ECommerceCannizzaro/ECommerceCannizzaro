@@ -1,0 +1,10 @@
+<script>start("c:\\Users\\roxye\\Documents\\GitHub\\ElisaFiorenza\\ECommerceCannizzaro\\");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow("CreaProdotto.php","CreaProdotto.php",0,1631,"1.6 kB",1740563260,"2/26/25, 10:47:40 AM");</script>
+<script>addRow("CreazioneAcquisto.php","CreazioneAcquisto.php",0,2338,"2.3 kB",1740939778,"3/2/25, 7:22:58 PM");</script>
+<script>addRow("CreazioneUtente.php","CreazioneUtente.php",0,1713,"1.7 kB",1740562848,"2/26/25, 10:40:48 AM");</script>
+<script>addRow("dbEcannizza.sql","dbEcannizza.sql",0,1467,"1.4 kB",1740343590,"2/23/25, 9:46:30 PM");</script>
+<script>addRow("Index.php","Index.php",0,2808,"2.7 kB",1741030033,"3/3/25, 8:27:13 PM");</script>
+<script>addRow("InserimentoAcquisto.php","InserimentoAcquisto.php",0,2463,"2.4 kB",1740562854,"2/26/25, 10:40:54 AM");</script>
+<script>addRow("InserimentoProdotto.php","InserimentoProdotto.php",0,2113,"2.1 kB",1740562856,"2/26/25, 10:40:56 AM");</script>
+<script>addRow("InserimentoUtente.php","InserimentoUtente.php",0,2160,"2.1 kB",1740562858,"2/26/25, 10:40:58 AM");</script>
