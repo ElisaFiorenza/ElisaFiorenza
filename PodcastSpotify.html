@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>Podcast RSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2b2d32;
+            color: #e0e0e0;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #671fed;
+        }
+        h2 {
+            color: #5f5feb;
+        }
+        .cover-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        img {
+            max-width: 200px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #424141f7;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            width: 50%;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        a {
+            text-decoration: none;
+            color: #1587a3;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Podcast RSS</h1>
+    <p>Ascolta il nostro podcast "Lezioni di Potatura":</p>
+    
+    <div class="cover-container">
+        <img id="podcast-cover" src="" alt="Copertina Podcast" style="display:none;">
+    </div>
+    
+    <h2>Episodi</h2>
+    <ul id="episodes"></ul>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const rssUrl = "https://anchor.fm/s/1020b5254/podcast/rss"; // URL del feed RSS
+            
+            // Recupera e converte il feed RSS in JSON
+            fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`)
+                .then(response => response.json()) // Converte la risposta in JSON
+                .then(data => {
+                    const episodesList = document.getElementById("episodes");
+                    const podcastCover = document.getElementById("podcast-cover");
+                    
+                    // Imposta l'immagine di copertina
+                    if (data.feed.image) {
+                        podcastCover.src = data.feed.image;
+                        podcastCover.style.display = "block";
+                    }
+                    
+                    // Aggiunge ogni episodio come elemento della lista
+                    data.items.forEach(item => {
+                        episodesList.innerHTML += `<li><a href="${item.link}" target="_blank">${item.title}</a></li>`;
+                    });
+                })
+                .catch(error => console.error("Errore nel caricamento del feed:", error)); // Gestione errori
+        });
+    </script>
+</body>
+</html>
